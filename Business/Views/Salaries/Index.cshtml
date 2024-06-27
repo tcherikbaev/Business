@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Business.Models.Salary>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Table of Payroll</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oklad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountStake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bonus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Premia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oklad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountStake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Premia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthNavigation.Month1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameNavigation.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearNavigation.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
